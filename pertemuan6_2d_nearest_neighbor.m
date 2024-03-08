@@ -1,0 +1,14 @@
+img = [0 1; 1 0 ];
+imgUp = [zeros(50), ones(50); ones(50), zeros(50)];
+img1 = imresize(img,[100 100],"nearest");
+figure;
+surf(imgUp)
+figure;
+surf(imgUp); colorMap('gray');
+
+% 2D Nearest Neighbor
+gambar = [1:5; 1:5;1:5; 1:5; 1:5]
+figure;
+surf(gambar)
+gambarUp = imresize(gambar, [100, 100], "nearest");
+figure; surf(gambarUp);
