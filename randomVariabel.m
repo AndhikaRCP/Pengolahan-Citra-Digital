@@ -1,7 +1,4 @@
-% Variabel Acak
+clear; clc;
+s = rng();
 
-clc;
-clear;
-
-s = rng(); % Random Number Generator
 save('randomVariabel','s');

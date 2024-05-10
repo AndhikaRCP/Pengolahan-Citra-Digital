@@ -29,17 +29,23 @@ img_uniform = im2uint8(img_uniform);
 % Exponential Noise
 noise_exp = random('Exponential',10, size(Image));
 img_exp = uint8(noise_exp);
-img_exp = Image + img
+img_exp = Image + img_exp;
 
 % Gamma Noise
 noise_gamma = random('Gamma', 2, 10, size(Image));
-img_gamma = im2double(Image) + noise_gamma;
-img_gamma = im2uint8(img_gamma);
+img_gamma = uint8(noise_gamma);
+img_gamma =Image + img_gamma;
 
 % Rayleigh Noise
 noise_rayleigh = random('Rayleigh',15, size(Image));
-img_ray = im2double(Image) + noise_rayleigh;
-img_ray = im2uint8(img_ray);
+img_ray = uint8(noise_rayleigh);
+img_ray = Image + img_ray;
+
+% Periodic Noise
+s = size(Image);
+[x,y] = meshgrid(1:s(1), 1:s(2));
+p = sin(x/3+y/5)+1;
+periodic_noise = (im2double(Image) +p'/2)/2;
 
 figure,
 subplot(2,4,1), imshow(Image), title('Original Image');
@@ -49,3 +55,4 @@ subplot(2,4,4), imshow(img_uniform), title('Uniform Noise Image');
 subplot(2,4,5), imshow(img_exp), title('Exponential Noise Image');
 subplot(2,4,6), imshow(img_gamma), title('Gamma Noise Image');
 subplot(2,4,7), imshow(img_ray), title('Rayleigh Noise Image');
+subplot(2,4,8), imshow(periodic_noise), title('Periodic Noise Image');
