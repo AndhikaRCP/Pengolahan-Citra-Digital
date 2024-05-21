@@ -12,7 +12,6 @@ ft_shift = fftshift(ft);
 figure, subplot(1,2,1), imshow(abs(ft_shift), []), ...
     title('Direct remap');
 
-
 % Case 4
 subplot(1,2,2), imshow(log(1 + abs(ft_shift)), []), ...
     title('Direct remap');
